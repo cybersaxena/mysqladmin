@@ -13,5 +13,6 @@
         foreach($users as $us){
             echo $us->getUser();
         }
-        $view = 'listUser'
+        $view = 'listUser';
+        $title = "Lista de Usuarios";
 ?>

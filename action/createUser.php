@@ -10,4 +10,5 @@
         $msgOK[] = "User $user@$server successfully created";
     }
         $view = "userCreateForm";
+        $title = "Crear usuario";
 ?>
