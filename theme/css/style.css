@@ -11,7 +11,7 @@ padding: 0;
 }
 
 .maincontent{
-margin-left:300px;
+
 padding:10px 20px;
 }
 
@@ -166,7 +166,7 @@ background-position: 10px center;
 list-style:none;
 color: white;
 background-color: maroon;
-background-image: url('../images/info.png');
+background-image: url('../images/error.png');
 background-size:20px 20px;
 }
 
@@ -179,7 +179,7 @@ background-position: 10px center;
 list-style:none;
 color: black;
 background-color: orange;
-background-image: url('../images/info.png');
+background-image: url('../images/warning.png');
 background-size:20px 20px;
 }
 
@@ -192,7 +192,7 @@ background-position: 10px center;
 list-style:none;
 color: white;
 background-color: gray;
-background-image: url('../images/info.png');
+background-image: url('../images/sql.png');
 background-size:20px 20px;
 font-size: small;
 }

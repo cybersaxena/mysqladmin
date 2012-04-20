@@ -2,7 +2,9 @@
         $db= new MySQLdBO();
         echo $db->connect();
         $query = "SELECT  * FROM MYSQL.USER ";
+        
         $result = $db->execQuery($query);
+        echo $result;
         $users = array();
         while($user=mysql_fetch_array($result)){
             $u = new User();
