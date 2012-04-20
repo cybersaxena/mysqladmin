@@ -11,7 +11,7 @@ padding: 0;
 }
 
 .maincontent{
-margin-left:300;
+margin-left:300px;
 padding:10px 20px;
 }
 
@@ -146,15 +146,53 @@ td {
 
 .info {
 border: 1px solid;
-margin: 10px 0px;
-padding:15px 10px 15px 50px;
+margin: 2px 0px;
+padding:3px 10px 3px 40px;
 background-repeat: no-repeat;
 background-position: 10px center;
 list-style:none;
-}
-.info {
 color: #00529B;
 background-color: #BDE5F8;
 background-image: url('../images/info.png');
-background-size:30px 30px;
+background-size:20px 20px;
+}
+
+.error {
+border: 1px solid;
+margin: 2px 0px;
+padding:3px 10px 3px 40px;
+background-repeat: no-repeat;
+background-position: 10px center;
+list-style:none;
+color: white;
+background-color: maroon;
+background-image: url('../images/info.png');
+background-size:20px 20px;
+}
+
+.warning {
+border: 1px solid;
+margin: 2px 0px;
+padding:3px 10px 3px 40px;
+background-repeat: no-repeat;
+background-position: 10px center;
+list-style:none;
+color: black;
+background-color: orange;
+background-image: url('../images/info.png');
+background-size:20px 20px;
+}
+
+.sqlm {
+border: 1px solid;
+margin: 2px 0px;
+padding:3px 10px 3px 40px;
+background-repeat: no-repeat;
+background-position: 10px center;
+list-style:none;
+color: white;
+background-color: gray;
+background-image: url('../images/info.png');
+background-size:20px 20px;
+font-size: small;
 }

@@ -23,13 +23,18 @@
             if($password){
                 $query .= "IDENTIFIED BY '" . $password ."' ";
             }
-            echo $query;
             $dbo->execQuery($query);
+            $query = "CREATE USER '" . $user . "'@'".$server."' ";
+            if($password){
+                $query .= "IDENTIFIED BY '" . $password ."' ";
+            }
+            $GLOBALS['messagesSQL'][] = $query;
         }
         
         function dropUser($user,$server="%",$dbo){
             $query = "DROP USER '" . $user . "'@'".$server."' ";
             $dbo->execQuery($query);
+            $GLOBALS['messagesSQL'][]= $query;
         }
         
         function grantPrivileges($user,$server,$privileges,$object,$grant=false,$dbo){
@@ -37,19 +42,19 @@
             if($grant){
                 $query .= " WITH GRANT OPTION";
             }
-            echo $query;
-            echo mysql_error();
+            $GLOBALS['messagesSQL'][]= $query;
             $dbo->execQuery($query);
          }
          
          function revokePrivileges($user,$server,$privileges,$object,$grant=false,$dbo){
             $query = "REVOKE " . implode(",", $privileges) . " PRIVILEGES ON " . $object .".* FROM '" . $user . "'@'".$server."'";
-            echo $query;
+            $GLOBALS['messagesSQL'][]= $query;
             $dbo->execQuery($query);
             echo mysql_error();
             if(!$grant){
                 $query = "REVOKE GRANT OPTION ON * . * FROM '$user'@'$server'";
                 $dbo->execQuery($query);
+                $GLOBALS['messagesSQL'][]= $query;
             }
          }
 	

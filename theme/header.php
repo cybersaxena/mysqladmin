@@ -13,12 +13,3 @@
         
     </ul>
 </nav>
-<div id="mensajes">
-<?php
-if(isset($mensajes)){
-	foreach($mensajes as $mensaje){
-		echo "<li class='info'>$mensaje</li>";
-	}
-}
-?>
-</div>

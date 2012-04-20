@@ -67,7 +67,7 @@
         
         revokePrivileges($user,$server,array("ALL"),"*",isset($_POST['GRANT']),$db);
         grantPrivileges($user,$server,$privileges,"*",isset($_POST['GRANT']),$db);
-        $msgOK[] = "User $user@$server successfully created";
+        $messagesOK[] = "Los privilegios se han aplicado de forma correcta para el usuario: $user@$server";
     }
 
         $view = "privilegesForm";

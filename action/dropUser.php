@@ -8,7 +8,7 @@ if($_POST['drop']){
     $db= new MySQLdBO();
     echo $db->connect();
     dropUser($user->getUser(),$user->getHost(),$db);
-    $msgOK[] = "Se ha borrado exitosamente.";
+    $messagesOK[] = "Se ha borrado exitosamente.";
     include("action/listUser.php");
 }else{
     echo $_GET['userLogin']; 

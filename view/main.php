@@ -8,6 +8,7 @@
 	<body>
 	<?PHP include("theme/header.php"); ?>
             <div class="contenido">
+                
                 <div class="dbcolumn">
                 
                 <?php include("$view.php"); ?>
@@ -15,6 +16,7 @@
                 </div>
                 
                 <div class="maincontent">
+                <div id="mensajes"><?php include_once("theme/messages.php");?></div>
                 
                 <?php include("$view.php"); ?>
                 
