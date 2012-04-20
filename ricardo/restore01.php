@@ -25,7 +25,7 @@ $mysql_database = $Dataname;
 
 
 // Connect to MySQL server
-mysql_connect($mysql_host, $mysql_username, $mysql_password) or die('Error connecting to MySQL server: ' . mysql_error());
+$coneccion=mysql_connect($mysql_host, $mysql_username, $mysql_password) or die('Error connecting to MySQL server: ' . mysql_error());
 
 //There is a same database
 
@@ -77,8 +77,20 @@ foreach ($lines as $line)
         $templine = '';
     }
 }
+mysql_close($coneccion);
+mysql_connect($mysql_host, $mysql_username, $mysql_password) or die('Error connecting to MySQL server: ' . mysql_error());
+
+
 if ($nasa==1)
 {
+    
+    $prueba=mysql_select_db('whorestore');
+    //echo $prueba;
+    $insertar= mysql_query("INSERT INTO bitacora (nombre,nomDB,tipo) VALUES('$mysql_username','$mysql_database','Restauracion')");
+    //if($insert!=1)
+    //{ echo 'Inserto el registro';
+      //  }
+    
     echo 'Restore successful';
     echo '<div align="center"><a href="Inicio.html">Regresar Menu Principal</a></div>';  
 }

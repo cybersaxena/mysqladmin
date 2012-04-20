@@ -9,6 +9,15 @@
        return $link;
      }
 $link=Connect('localhost','root','');
+
+
+$mysql_host = 'localhost';
+// MySQL username
+$mysql_username = 'root';
+// MySQL password
+$mysql_password = '';
+// Database name
+//$mysql_database = '';
 //
 if($_POST['submit'])
  { 
@@ -24,12 +33,25 @@ if($_POST['submit'])
     header('Content-type: text/plain');
     header('Content-Disposition: attachment; filename="'.$db.'.sql"');
     echo $output;
-    exit();
+    //exit();
+    
+    //record in bitacora
+    
+      $prueba=mysql_select_db('whorestore');
+    $insertar= mysql_query("INSERT INTO bitacora (nombre,nomDB,tipo) VALUES('$mysql_username','$db','Respaldo')");
+    //
+    
  }    
+
+ 
 $select="show databases";
 $select=mysql_query($select); 
 echo 'Selecciona tu base de datos que deseas respaldar <br>';
 echo '<br>';
+
+
+ 
+
 
 ?>
 <html>
