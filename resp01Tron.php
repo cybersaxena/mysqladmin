@@ -37,8 +37,13 @@ if($_POST['submit'])
     if(trim($output)==NULL)
      {
          echo "Error creando el backup de la DB: ".$db;
-         exit();
-     }
+         include("view/main.php");
+         ///exit();
+     }else
+     {
+     
+     
+     
     header('Content-type: text/plain');
     header('Content-Disposition: attachment; filename="'.$db.'.sql"');
     echo $output;
@@ -48,6 +53,7 @@ if($_POST['submit'])
     
       $prueba=mysql_select_db('whorestore');
     $insertar= mysql_query("INSERT INTO bitacora (nombre,nomDB,tipo) VALUES('$mysql_username','$db','Respaldo')");
+    }
     //
     
  }    
