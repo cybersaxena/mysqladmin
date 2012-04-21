@@ -4,7 +4,6 @@ $messagesWarning = array();
 $messagesError = array();
 $messagesSQL = array();
 
-include("view/main.php");
 
 extract($_SERVER,EXTR_SKIP);
 @extract($_SESSION,EXTR_SKIP);
@@ -32,33 +31,14 @@ if($boton)
                 
 	}
 	if($subio==true) {
-		echo "El archivo subio con exito";
+		$messagesOK[] =  "El archivo subio con exito";
                 //echo "<a href="Inicio.html">Regresar Menu Principal</a>"; 
-                echo '<div align="center"><a href="Inicio.html">Regresar Menu Principal</a></div>'; 
 	} else {
-		echo "El archivo no cumple con las reglas establecidas";
+		$messagesError[] =  "El archivo no cumple con las reglas establecidas";
                 //echo "<a href="Inicio.html">Regresar Menu Principal</a>"
-                //echo '<td><a href="Inicio.html">Regresar Menu Principal</a></td>';
-                echo '<div align="center"><a href="resp01Tron.php">Regresar Menu Principal</a></div>';  
+                //echo '<td><a href="Inicio.html">Regresar Menu Principal</a></td>';  
 	}
-	die();
-}else 
+}
+$view = "loadSQL";
+include_once("view/main.php")
 ?>
-
-<html>
-<head>
-<title>Upload en PHP - Ejemplo 1</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-</head>
-
-<body>
-<form action="<?=$PHP_SELF; echo $PHP_SELF; ?>" method="post" enctype="multipart/form-data" name="form1">
-  <p align="center">Archivo
-  	<input name="archivo" type="file" id="archivo">
-  </p>
-  <p align="center"><input name="boton" type="submit" id="boton" value="Enviar"></p>
-</form>
-    <div align="center"><a href="Inicio.html">Regresar Menu Principal</a></div>
-
-</body>
-</html>
