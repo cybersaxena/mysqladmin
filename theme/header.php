@@ -21,7 +21,24 @@
                 <li><a href="mostrar01.php" >Bitacora</a></li>
             </ul>
         </li>
+        <li>Tablas
+            <ul>
+                <li><a href="index.php?action=crearTablaAction" >Crear</a></li>
+                <li><a href="index.php?action=DeleteTable" >Borrar</a></li>
+				 <li><a href="index.php?action=AlterTabla" >Alterar</a></li>
+                <li><a href="index.php?action=GrantTabla" >Permisos</a></li>
+				<li><a href="index.php?action=cambioBase" >CAmbiar Base de Trabajo</a></li>
+            </ul>
+        </li>
         
     </ul>
+   			
+    </ul>
+	
+		<!-- PARTE SERGIO-->	
+	<?php if(isset($_SESSION['base'])) echo "Base: ".$_SESSION['base']; ?>
+	
+		<!-- PARTE SERGIO-->	
+	
         <ul style="float:right"><li><a href="index.php?action=logout">Ingresar/Salir</a></li></ul>
 </nav>
