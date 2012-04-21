@@ -1,6 +1,5 @@
 <div id="header">
-    <h1><img src="theme/images/mysql.gif" width="200px"/> Admin</h1>
-    <p><a href="index.php?action=logout">Ingresar/Salir</a></p>
+    <div><h1><img src="theme/images/mysql.gif" width="200px"/> Admin</h1></div>
 </div>
 <nav id="navmenu" >
     <ul>
@@ -13,4 +12,5 @@
         </li>
         
     </ul>
+        <ul style="float:right"><li><a href="index.php?action=logout">Ingresar/Salir</a></li></ul>
 </nav>

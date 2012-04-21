@@ -12,7 +12,7 @@
             echo "<tr>";
             echo "<td>".$us->getUser()."</td>";
             echo "<td>".$us->getHost()."</td>";
-            echo "<td><a href='index.php?action=editUser&userLogin=".$us->getUser()."@".$us->getHost()."'><img src='theme/images/edit.png'></a></td>";
+            echo "<td><a href='index.php?action=editUser&user=".$us->getUser()."&server=".$us->getHost()."'><img src='theme/images/edit.png'></a></td>";
             echo "<td><a href='index.php?action=dropUser&userLogin=".$us->getUser()."@".$us->getHost()."'><img src='theme/images/userdel.png'></a></td>";
             echo "<td><a href='index.php?action=privilegios&user=".$us->getUser()."&server=".$us->getHost()."'><img src='theme/images/key.png'></a></td>";
             echo "</tr>";

@@ -57,6 +57,13 @@
                 $GLOBALS['messagesSQL'][]= $query;
             }
          }
+         
+         function changePassword($user,$server="%",$password,$dbo){
+            $query = "SET PASSWORD FOR '" . $user . "'@'".$server."' = PASSWORD('$password'); ";
+            $dbo->execQuery($query);
+            $query = "SET PASSWORD FOR '" . $user . "'@'".$server."' = PASSWORD('*******'); ";
+            $GLOBALS['messagesSQL'][]= $query;
+        }
 	
 	
 ?>
