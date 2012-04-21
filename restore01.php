@@ -105,7 +105,7 @@ if ($nasa==1)
       //  }
     
     echo 'Restore successful';
-    echo '<div align="center"><a href="Inicio.html">Regresar Menu Principal</a></div>';  
+    //echo '<div align="center"><a href="Inicio.html">Regresar Menu Principal</a></div>';  
 }
 
 ?>

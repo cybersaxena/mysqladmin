@@ -1,5 +1,11 @@
 <?php
-session_start();
+@session_start();
+$messagesOK = array();
+$messagesWarning = array();
+$messagesError = array();
+$messagesSQL = array();
+
+include("view/main.php");
     function Connect($host,$user,$passwd)
      {  
       if(!($link=mysql_connect($host,$user,$passwd)))
@@ -31,7 +37,7 @@ mysql_query($select);
 echo 'La base de datos '.$db .'  ha sido creada';
 echo '<br>';
 
-echo '<br> <div align="center"><a href="Inicio.html">Regresar Menu Principal</a></div>';
+//echo '<br> <div align="center"><a href="Inicio.html">Regresar Menu Principal</a></div>';
 }
 
 ?>

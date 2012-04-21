@@ -58,7 +58,7 @@ if(isset($_GET['send'])){
     echo "<br>";
     }
 
- echo '<br> <div align="center"><a href="Inicio.html">Regresar Menu Principal</a></div>';
+ //echo '<br> <div align="center"><a href="Inicio.html">Regresar Menu Principal</a></div>';
 
 
 

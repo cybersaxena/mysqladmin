@@ -56,7 +56,7 @@ include("view/main.php");
 </TABLE>
 </FORM>
 
-<div align="center"><a href="Inicio.html">Regresar Menu Principal</a></div>
+
 
 	
 </BODY> 

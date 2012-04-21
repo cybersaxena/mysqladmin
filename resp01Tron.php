@@ -88,6 +88,6 @@ echo '<br>';
   </select>
   <input type="submit" name="submit" value="Crear backup" />  
  </form>
-    <div align="center"><a href="Inicio.html">Regresar Menu Principal</a></div>
+    <div align="center"><a href="Index.php">Regresar Menu Principal</a></div>
 </body>
 </html>

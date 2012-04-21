@@ -29,6 +29,6 @@ $adi=mysql_query($select);
 echo 'La base de datos '.$db .'  ha sido borrada';
 echo '<br>';
 
-echo '<br> <div align="center"><a href="Inicio.html">Regresar Menu Principal</a></div>';
+//echo '<br> <div align="center"><a href="Inicio.html">Regresar Menu Principal</a></div>';
 
 ?>

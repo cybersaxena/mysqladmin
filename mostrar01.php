@@ -63,7 +63,7 @@ mysql_free_result($result);
 mysql_close($link);
 ?>
 
-	<div align="center"><a href="Inicio.html">Regresar Menu Principal</a></div>
+	
 
 	</BODY>
 	</HTML>
