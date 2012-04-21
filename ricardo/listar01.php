@@ -6,8 +6,9 @@ error_reporting(E_ALL);
 ini_set("display_errors", 1);
 function listar()
 {
-    $quitar_extension = array(".txt", ".php",".ini"); //Extensiones a quitar
+    $quitar_extension = array(".txt", ".php",".ini",".html"); //Extensiones a quitar
     $saltar_archivo = false;
+    echo '</br>';
     echo '<select name="lista">';
     $dir = opendir("./");
     
@@ -40,6 +41,7 @@ function listar()
 }
 
 
+echo 'Selecciona el archivo de la base que deseas restaurar';
 
 echo '<form method="post" action="'.$_SERVER['PHP_SELF'].'?send">';
 listar();
@@ -55,10 +57,10 @@ if(isset($_GET['send'])){
     $_SESSION['nombre']=$nueva;
 //echo '<a href="restore01.php">pagina</a>';
 
-    echo $_SESSION;
-   echo $_SESSION['nombre'];
+    //echo $_SESSION;
+    //echo $_SESSION['nombre'];
    
-    echo $nueva;
+    //echo $nueva;
 
     echo "<FORM ACTION=restore01.php METHOD=post>";
 

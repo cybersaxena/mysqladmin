@@ -17,7 +17,6 @@ function Connect($host,$user,$passwd)
 
 function listar()
 {
-    
     echo '<select name="lista">';
     $select="show databases";
     $select=mysql_query($select); 
@@ -26,49 +25,30 @@ function listar()
    {
        ?>
        <option onclick='form.submit();' value="<?php echo $row[0]; ?>"><?php echo $row[0]; 
-       
-       
        ?></option>
-      
-      
-       
        <?php
    }        
     echo '</select>';
-    
-
 }
 
 
 
 $link=Connect('localhost','root','');
 echo '<form method="post" action="'.$_SERVER['PHP_SELF'].'?send">';
+echo 'Seleciona la Base de Datos que deseas Borrar';
+echo'<br>';
+echo'<br>';
 listar();
 global $nueva;
 echo '</form>';
 if(isset($_GET['send'])){
-    echo "Has seleccionado ".$_POST['lista']."";
-    
+    echo "Has seleccionado la base ".$_POST['lista']."  para borrar ";
     $nueva = $_POST['lista'];
-    //echo $nueva;
-    
-    
     $_SESSION['nombre']=$nueva;
-//echo '<a href="restore01.php">pagina</a>';
-
-    echo $_SESSION;
-    echo $_SESSION['nombre'];
-   
-    echo $nueva;
-
     echo "<FORM ACTION=borrar01.php METHOD=post>";
-
     echo "<INPUT TYPE=submit NAME=submit  VALUE=Borrar><BR>";
-
     echo "</FORM>";
     echo "<br>";
-   
-   
     }
 
  echo '<br> <div align="center"><a href="Inicio.html">Regresar Menu Principal</a></div>';

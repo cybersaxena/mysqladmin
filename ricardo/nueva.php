@@ -1,15 +1,5 @@
 <?php
 
-//if (empty($_POST['NombreDB'])) {  
-//echo' no metiste nada';
-//}
-
-if (empty($_POST['NombreDB'])) {
-  echo 'Llen— los Datos';
-}else{
-  // No lleno los datos
-}
-
 ?>
 
 <HTML> 
@@ -33,7 +23,6 @@ if (empty($_POST['NombreDB'])) {
 	<?php
         
         if (empty($_POST['NombreDB'])) {
-  echo 'Llen— los Datos';
 }else{
   // No lleno los datos
 }
