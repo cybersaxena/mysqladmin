@@ -7,6 +7,14 @@
 <br>
 
 <?php
+@session_start();
+
+$messagesOK = array();
+$messagesWarning = array();
+$messagesError = array();
+$messagesSQL = array();
+
+include("view/main.php");
 // Conectando, seleccionando la base de datos
 
 $mysql_host = 'localhost';

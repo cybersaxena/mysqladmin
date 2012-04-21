@@ -1,13 +1,13 @@
 <?
-
+@session_start(); 
+ob_start();
 $messagesOK = array();
 $messagesWarning = array();
 $messagesError = array();
 $messagesSQL = array();
 
 include("view/main.php");
-@session_start(); 
-ob_start();
+
 
 error_reporting(E_ALL);
 ini_set("display_errors", 1);

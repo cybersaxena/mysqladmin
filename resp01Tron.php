@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 
 $messagesOK = array();
@@ -6,8 +7,6 @@ $messagesWarning = array();
 $messagesError = array();
 $messagesSQL = array();
 
-
-//include("view/main.php");
     function Connect($host,$user,$passwd)
      {  
       if(!($link=mysql_connect($host,$user,$passwd)))
@@ -22,9 +21,9 @@ $link=Connect('localhost','root','');
 
 $mysql_host = 'localhost';
 // MySQL username
-$mysql_username = 'root';
+$mysql_username = $_SESSION['user'];
 // MySQL password
-$mysql_password = '';
+$mysql_password = $_SESSION['passwd'];
 // Database name
 //$mysql_database = '';
 //
@@ -37,23 +36,16 @@ if($_POST['submit'])
     if(trim($output)==NULL)
      {
          echo "Error creando el backup de la DB: ".$db;
-         include("view/main.php");
-         ///exit();
-     }else
-     {
-     
-     
-     
+         exit();
+     }
     header('Content-type: text/plain');
     header('Content-Disposition: attachment; filename="'.$db.'.sql"');
     echo $output;
     //exit();
-    
     //record in bitacora
     
-      $prueba=mysql_select_db('whorestore');
+    $prueba=mysql_select_db('whorestore');
     $insertar= mysql_query("INSERT INTO bitacora (nombre,nomDB,tipo) VALUES('$mysql_username','$db','Respaldo')");
-    }
     //
     
  }    

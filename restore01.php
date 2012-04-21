@@ -1,4 +1,6 @@
 <?
+@session_start(); //
+ob_start(); 
 
 $messagesOK = array();
 $messagesWarning = array();
@@ -7,8 +9,7 @@ $messagesSQL = array();
 
 include("view/main.php");
 
-@session_start(); //
-ob_start();  
+ 
   
 //$_SESSION['nombre'];  
 //echo $_SESSION['nombre'];  
@@ -25,15 +26,18 @@ $rest = substr($filename, 0, -4);  // return whitout .SQL
 // MySQL host
 $mysql_host = 'localhost';
 // MySQL username
-$mysql_username = 'root';
+$mysql_username = $_SESSION['user'];
 // MySQL password
-$mysql_password = '';
+$mysql_password = $_SESSION['passwd'];
 // Database name
 $mysql_database = $Dataname;
 
 
+//$_SESSION['user'],$_SESSION['passwd']
+
 // Connect to MySQL server
-$coneccion=mysql_connect($mysql_host, $mysql_username, $mysql_password) or die('Error connecting to MySQL server: ' . mysql_error());
+//$coneccion=mysql_connect($mysql_host, $mysql_username, $mysql_password) or die('Error connecting to MySQL server: ' . mysql_error());
+$coneccion=mysql_connect($mysql_host, root, '') or die('Error connecting to MySQL server: ' . mysql_error());
 
 //There is a same database
 
@@ -87,6 +91,7 @@ foreach ($lines as $line)
 }
 mysql_close($coneccion);
 mysql_connect($mysql_host, $mysql_username, $mysql_password) or die('Error connecting to MySQL server: ' . mysql_error());
+mysql_connect($mysql_host, 'root', '') or die('Error connecting to MySQL server: ' . mysql_error());
 
 
 if ($nasa==1)

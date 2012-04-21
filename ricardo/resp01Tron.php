@@ -1,4 +1,18 @@
 <?php
+
+
+@session_start();
+
+$messagesOK = array();
+$messagesWarning = array();
+$messagesError = array();
+$messagesSQL = array();
+
+
+include("config.inc.php");
+
+
+
     function Connect($host,$user,$passwd)
      {  
       if(!($link=mysql_connect($host,$user,$passwd)))
@@ -43,12 +57,12 @@ if($_POST['submit'])
     
  }    
 
- 
+
 $select="show databases";
 $select=mysql_query($select); 
 echo 'Selecciona tu base de datos que deseas respaldar <br>';
 echo '<br>';
-
+echo $dumpPath;
 
  
 
