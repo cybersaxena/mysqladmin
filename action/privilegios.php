@@ -2,6 +2,13 @@
     
     $user=$_REQUEST['user'];
     $server=$_REQUEST['server'];
+    $query = "SHOW DATABASES ";
+        
+    $result = $db->execQuery($query);
+    $dbs = array();
+    while($dba=mysql_fetch_array($result)){
+        $dbs[] = $dba['Database'];
+    }
     if($_POST['grant']){
         $privileges=array();
     
@@ -60,12 +67,13 @@
         if(isset($_POST['EXECUTE'])){
             $privileges[] = 'EXECUTE';
         }
-    
+        
+        
         $object = $_POST['DATABASE'];
         
-        revokePrivileges($user,$server,array("ALL"),"*",isset($_POST['GRANT']),$db);
+        revokePrivileges($user,$server,array("ALL"),$object,isset($_POST['GRANT']),$db);
         echo mysql_error();
-        grantPrivileges($user,$server,$privileges,"*",isset($_POST['GRANT']),$db);
+        grantPrivileges($user,$server,$privileges,$object,isset($_POST['GRANT']),$db);
         echo mysql_error();
 
         if($GLOBALS['m_err'] != null)

@@ -228,7 +228,7 @@ input[type="button"],input[type="submit"] {
 	top:1px;
 }
 
-input[type="text"],input[type="password"]{
+input[type="text"],input[type="password"],select{
     border: 1px solid #DDDDDD;
     font-family: Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;
     font-size: 14px;
