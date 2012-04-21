@@ -11,7 +11,7 @@ $conexion=mysql_pconnect($dbhost,$user,$pass);
 	if (!isset($_POST['baseDatos'])){
 	?>
 	Selecciona la base a usar:
-	<form action="../index.php?action=cambioBase" method="post" name="cBase">
+	<form action="index.php?action=cambioBase" method="post" name="cBase">
 		<select name="baseDatos">
 			<?php 
 				$sql="SHOW DATABASES;";

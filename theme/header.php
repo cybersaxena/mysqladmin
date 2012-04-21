@@ -41,6 +41,7 @@
 		<!-- PARTE SERGIO-->	
 	
         <ul style="float:right">
+        <li><?php if(isset($_SESSION['user'])) echo "Usuario: ".$_SESSION['user']; ?></li>
         <li><?php if(isset($_SESSION['base'])) echo "Base: ".$_SESSION['base']; ?></li>
         <li><a href="index.php?action=logout">Ingresar/Salir</a></li>
         </ul>
