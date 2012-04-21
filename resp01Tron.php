@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 
 $messagesOK = array();
@@ -30,64 +29,24 @@ $mysql_password = $_SESSION['passwd'];
 if($_POST['submit'])
  { 
      $db=$_POST['db'];
+     include_once("config.inc.php");
     //$output=shell_exec("d:\apps\mysql-5.0.45-win32\bin\mysqldump.exe -u root -proot ".$db); // WIN
-    $output=shell_exec("/xamppfiles/bin/mysqldump -u root -p ".$db); // MAC
+    $output=shell_exec("$dumpPath -u root -p ".$db); // MAC
     //
     if(trim($output)==NULL)
      {
          echo "Error creando el backup de la DB: ".$db;
          exit();
-     }
+     }else{
     header('Content-type: text/plain');
     header('Content-Disposition: attachment; filename="'.$db.'.sql"');
     echo $output;
-    //exit();
-    //record in bitacora
     
     $prueba=mysql_select_db('whorestore');
     $insertar= mysql_query("INSERT INTO bitacora (nombre,nomDB,tipo) VALUES('$mysql_username','$db','Respaldo')");
-    //
-    
+    }die();
  }    
 
- 
-$select="show databases";
-$select=mysql_query($select); 
-echo 'Selecciona tu base de datos que deseas respaldar <br>';
-echo '<br>';
-
-
- 
-
-
+$view = "respaldo";
+include_once("view/main.php");
 ?>
-<html>
-<head>
-</head>
-<body>
- <form action="" method="post">  
-  <select name="db">
-  <?php
-  while($row = mysql_fetch_row($select))
-   {
-       ?>
-       <option value="<?php echo $row[0]; ?>"><?php echo $row[0]; 
-       
-       if($row[0]==$base)
-        { echo 'hay almenos una base';
-            }
-       
-       
-       ?></option>
-      
-      
-       
-       <?php
-   }    
-  ?>
-  </select>
-  <input type="submit" name="submit" value="Crear backup" />  
- </form>
-    <div align="center"><a href="Index.php">Regresar Menu Principal</a></div>
-</body>
-</html>

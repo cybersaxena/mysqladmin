@@ -1,7 +1,5 @@
-<?
-    // ejemplo
-    //$dumpPath = "/xamppfiles/bin/mysqldump";
-    $dumpPath = "/ruta/dump"
-    
+<?php 
 
-?> 
+$dumpPath="/Applications/XAMPP/xamppfiles/bin/mysqldump"
+
+?>
