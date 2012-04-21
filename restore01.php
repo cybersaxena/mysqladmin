@@ -67,7 +67,8 @@ mysql_select_db($mysql_database) or die('Error selecting MySQL database: <br>' .
 // Temporary variable, used to store current query
 $templine = '';
 // Read in entire file
-$lines = file($filename);
+//$lines = file($filename);
+$lines = file("backup/$filename");
 // Loop through each line
 foreach ($lines as $line)
 {
