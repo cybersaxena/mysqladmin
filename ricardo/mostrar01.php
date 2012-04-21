@@ -6,7 +6,6 @@
 <h1>Mostrar Contenido de la Bade de Datos</h1>
 <br>
 
-
 <?php
 // Conectando, seleccionando la base de datos
 
