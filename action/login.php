@@ -3,4 +3,5 @@
         $_SESSION['user'] = $_POST['user'];
         $_SESSION['passwd'] = $_POST['passwd'];
     }
+    $view="login";
 ?>

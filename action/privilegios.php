@@ -3,8 +3,6 @@
     $user=$_REQUEST['user'];
     $server=$_REQUEST['server'];
     if($_POST['grant']){
-        $db= new MySQLdBO();
-        $db->connect();
         $privileges=array();
     
         if(isset($_POST['UPDATE'])){
@@ -66,8 +64,14 @@
         $object = $_POST['DATABASE'];
         
         revokePrivileges($user,$server,array("ALL"),"*",isset($_POST['GRANT']),$db);
+        echo mysql_error();
         grantPrivileges($user,$server,$privileges,"*",isset($_POST['GRANT']),$db);
-        $messagesOK[] = "Los privilegios se han aplicado de forma correcta para el usuario: $user@$server";
+        echo mysql_error();
+
+        if($GLOBALS['m_err'] != null)
+            $messagesOK[] = "Los privilegios se han aplicado de forma correcta para el usuario: $user@$server";
+        else
+            $messagesError[] = $GLOBALS['m_err'];
     }
 
         $view = "privilegesForm";

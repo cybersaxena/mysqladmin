@@ -1,13 +1,13 @@
 <?php
 session_start();
-include_once("db/mysql.php");
-include_once("classes/classes.php");
-include_once("action/session_mgmt.php");
 $messagesOK = array();
 $messagesWarning = array();
 $messagesError = array();
 $messagesSQL = array();
-        
+$m_err;
+include_once("db/mysql.php");
+include_once("classes/classes.php");
+include_once("action/session_mgmt.php");
 
 
 //set_error_handler('handleError');
@@ -20,7 +20,7 @@ if(!$loggedin && $_GET['action']!='login'){
     } catch (Exception $e) {
         $title = "Error";
         $view = "index";
-    $messagesError[] =  'Excepci&oacute;n capturada: '.  $e->getMessage(). "\n";
+        $messagesError[] =  'Excepci&oacute;n capturada: '.  $e->getMessage(). "\n";
     }       
         
 }else {

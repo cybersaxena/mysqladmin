@@ -5,8 +5,6 @@ if($_POST['drop']){
     $user = new User();
     $user->setUser($_POST['user']);
     $user->setHost($_POST['host']);
-    $db= new MySQLdBO();
-    echo $db->connect();
     dropUser($user->getUser(),$user->getHost(),$db);
     $messagesOK[] = "Se ha borrado exitosamente.";
     include("action/listUser.php");

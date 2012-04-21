@@ -2,7 +2,7 @@
 	class MySQLdBO{
 		var $connection;
 		public function connect($user="root", $password=null){
-			$this->connection = mysql_connect("localhost",$user,$password);
+			$this->connection = @mysql_connect("localhost",$user,$password);
 			if (!$conexion){
 				return false;
 			}
@@ -11,9 +11,10 @@
 		
 		public function execQuery($sqlQuery,$dataBase = NULL){
 			if($database){
-				mysql_select_db($database,$this->connection);
+				@mysql_select_db($database,$this->connection);
 			}
-			return mysql_query($sqlQuery,$this->connection);
+			$result =  @mysql_query($sqlQuery,$this->connection);
+                        return $result;
 		}
 	}
 	
@@ -26,7 +27,7 @@
             $dbo->execQuery($query);
             $query = "CREATE USER '" . $user . "'@'".$server."' ";
             if($password){
-                $query .= "IDENTIFIED BY '" . $password ."' ";
+                $query .= "IDENTIFIED BY '**********' ";
             }
             $GLOBALS['messagesSQL'][] = $query;
         }
@@ -50,7 +51,6 @@
             $query = "REVOKE " . implode(",", $privileges) . " PRIVILEGES ON " . $object .".* FROM '" . $user . "'@'".$server."'";
             $GLOBALS['messagesSQL'][]= $query;
             $dbo->execQuery($query);
-            echo mysql_error();
             if(!$grant){
                 $query = "REVOKE GRANT OPTION ON * . * FROM '$user'@'$server'";
                 $dbo->execQuery($query);
