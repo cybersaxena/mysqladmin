@@ -1,4 +1,5 @@
 <?php
+session_start();
     function Connect($host,$user,$passwd)
      {  
       if(!($link=mysql_connect($host,$user,$passwd)))

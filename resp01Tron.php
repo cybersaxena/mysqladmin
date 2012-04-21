@@ -1,4 +1,13 @@
 <?php
+session_start();
+
+$messagesOK = array();
+$messagesWarning = array();
+$messagesError = array();
+$messagesSQL = array();
+
+
+//include("view/main.php");
     function Connect($host,$user,$passwd)
      {  
       if(!($link=mysql_connect($host,$user,$passwd)))
