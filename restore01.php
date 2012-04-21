@@ -61,8 +61,6 @@ $coneccion=mysql_connect($mysql_host, root, '') or die('Error connecting to MySQ
         //echo 'base de datos creada' ;
      }
 
-
-
 // Select database
 mysql_select_db($mysql_database) or die('Error selecting MySQL database: <br>' . mysql_error()  .' <br> <div align="center"><a href="Inicio.html">Regresar Menu Principal</a></div>'  );
  
