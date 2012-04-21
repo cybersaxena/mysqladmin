@@ -125,15 +125,15 @@ th {
     text-shadow: 0 1px 0 #FFFFFF;
 }
 
-table {
+table,form {
     border: 1px solid #CACACA;
     border-radius: 3px 3px 3px 3px;
     margin: 0;
-    width:100%;
+    width:90%;
     border-collapse: collapse;
     border-spacing: 0;
 }
-td {
+td ,form {
     background: none repeat scroll 0 0 #F8F8F8;
     border-bottom: 1px solid #EEEEEE;
     color: #484848;
@@ -195,4 +195,43 @@ background-color: gray;
 background-image: url('../images/sql.png');
 background-size:20px 20px;
 font-size: small;
+}
+
+
+input[type="button"],input[type="submit"] {
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
+	background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
+	background-color:#ededed;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	color:#777777;
+	font-family:arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #ffffff;
+}input[type="button"]:hover,input[type="submit"]:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) );
+	background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed');
+	background-color:#dfdfdf;
+}input[type="button"]:active,input[type="submit"]:active {
+	position:relative;
+	top:1px;
+}
+
+input[type="text"],input[type="password"]{
+    border: 1px solid #DDDDDD;
+    font-family: Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;
+    font-size: 14px;
+    margin: 10px 0;
+    padding: 4px;
 }

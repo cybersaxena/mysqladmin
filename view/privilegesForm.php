@@ -1,5 +1,5 @@
 <!--Representa s—lo el formularo de creaci—n de usuarios. -->
-<h2>Nuevo usuario</h2>
+<h2>Asignaci&oacute;n/Revocaci&oacute;n de Privilegios.</h2>
 <p>
 Ingresa los datos del usuario que deseas agregar al sistema.
 </p>
@@ -27,5 +27,5 @@ Ingresa los datos del usuario que deseas agregar al sistema.
 <input type="checkbox" value="Y" name="CREATE USER"><label for="CREATE USER">CREATE USER</label>
 <input type="checkbox" value="Y" name="EXECUTE"><label for="EXECUTE">EXECUTE</label>
 <input type="checkbox" value="Y" name="GRANT"><label for="GRANT">GRANT</label><br><br>
-<input type="submit" name="grant" value="Crear"></input>
+<input type="submit" name="grant" value="Guardar Cambios"></input>
 </form>
