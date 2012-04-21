@@ -6,7 +6,7 @@ Crear Tabla
 </head>
 <body>
 <?php include_once 'Columna.php';?>
-<form name="generaTabla" action="../index.php?action=crearTabla3" method="post">
+<form name="generaTabla" action="index.php?action=crearTabla3" method="post">
 Nombre de la tabla
 <input type='text' size='30' maxlength='30' name='nombreTabla'/><br>
 <?php 

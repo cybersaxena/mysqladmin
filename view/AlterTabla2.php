@@ -27,7 +27,7 @@ if(isset($_SESSION['user'])){
 		<body>
 
 
-		<form name="AlterColumn" action="../index.php?action=AlterColumn" method="post">
+		<form name="AlterColumn" action="index.php?action=AlterColumn" method="post">
 		<input type="hidden" name="NombreTabla" value="<?php echo $nombreTabla;?>"></input>
 		Seleccione la columna A Modificar:
 		<SELECT NAME="NColumna">

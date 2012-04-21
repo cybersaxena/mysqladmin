@@ -26,7 +26,7 @@ if(isset($_SESSION['user'])){
 		</title>
 		</head>
 		<body>
-		<form name="AlteraColumna"  action="../index.php?action=AlterColumn2" method="post">
+		<form name="AlteraColumna"  action="index.php?action=AlterColumn2" method="post">
 		<?php 
 			$nombreTabla=htmlspecialchars($_POST['NombreTabla']);
 			$nombreColumna=htmlspecialchars($_POST['NColumna']);

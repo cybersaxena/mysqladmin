@@ -16,13 +16,13 @@ if(isset($_SESSION['user'])){
 		$ip2="127.0.0.1";
 	}
 	$permisoCreate=false;
-	$sql="SELECT COUNT(*) AS conteo FROM mysql.user WHERE User='".$user."' AND ( Host='".$ip."' OR Host='".$ip2."' ) and Create_priv='Y';";
+	$sql="SELECT COUNT(*) AS conteo FROM mysql.user WHERE User='".$user."' AND ( Host='localhost' OR Host='127.0.0.1' or host='%' or host='::1' ) and Create_priv='Y';";
 	$percount= mysql_query($sql,$conexionRoot);
 	$valor = mysql_fetch_array($percount);
 	if($valor['conteo']>0){
 		$permisoCreate=true;
 	}else{
-		$sql="SELECT COUNT(*) AS conteo FROM mysql.db WHERE User='".$user."' AND ( Host='".$ip."' OR Host='".$ip2."' ) and Create_priv='Y' AND Db='".$base."' ;";
+		$sql="SELECT COUNT(*) AS conteo FROM mysql.db WHERE User='".$user."' AND ( Host='localhost' OR Host='127.0.0.1' or host='%' or host='::1' ) and Create_priv='Y' AND Db='".$base."' ;";
 		$percount= mysql_query($sql,$conexionRoot);
 		$valor = mysql_fetch_array($percount);
 		if($valor['conteo']>0){
@@ -39,7 +39,7 @@ if(isset($_SESSION['user'])){
 		</title>
 		</head>
 		<body>
-		<form name="NumColumnas" action="../index.php?action=crearTabla2" method="post">
+		<form name="NumColumnas" action=".index.php?action=crearTabla2" method="post">
 		Numero de Columnas:
 		<select name="numcols">
 		<?php for($i=1;$i<=100;$i++) echo "<option value='".$i."'/>".$i;?>

@@ -17,7 +17,7 @@ if(isset($_SESSION['user'])){
 	}
 	$sqlAlter="";
 	$permisoAlter=false;
-	$sql="SELECT COUNT(*) AS conteo FROM mysql.user WHERE User='".$user."' AND ( Host='".$ip."' OR Host='".$ip2."' ) and Alter_priv='Y';";
+	$sql="SELECT COUNT(*) AS conteo FROM mysql.user WHERE User='".$user."' AND ( Host='localhost' OR Host='127.0.0.1' or host='%' or host='::1' ) and Alter_priv='Y';";
 	$percount= mysql_query($sql,$conexionRoot);
 	$valor = mysql_fetch_array($percount);
 	if($valor['conteo']>0){
@@ -25,20 +25,20 @@ if(isset($_SESSION['user'])){
 		$sqlAlter="SELECT table_name as tabla FROM information_schema.tables where table_type='BASE TABLE' AND table_schema='".$base."';";
 	}
 	if(!$permisoAlter){
-		$sql="SELECT COUNT(*) AS conteo FROM mysql.db WHERE User='".$user."' AND ( Host='".$ip."' OR Host='".$ip2."' ) and Alter_priv='Y' AND Db='".$base."' ;";
+		$sql="SELECT COUNT(*) AS conteo FROM mysql.db WHERE User='".$user."' AND ( Host='localhost' OR Host='127.0.0.1' or host='%' or host='::1' ) and Alter_priv='Y' AND Db='".$base."' ;";
 		$percount= mysql_query($sql,$conexionRoot);
 		$valor = mysql_fetch_array($percount);
 		if($valor['conteo']>0){
 			$sqlAlter="SELECT table_name as tabla FROM information_schema.tables where table_type='BASE TABLE' AND table_schema='".$base."';";
 			$permisoAlter=true;
 		}else{
-			$sql="SELECT COUNT(*) AS conteo FROM mysql.tables_priv WHERE User='".$user."' AND ( Host='".$ip."' OR Host='".$ip2."' ) and table_priv like '%ALTER%' AND Db='".$base."' ;";
+			$sql="SELECT COUNT(*) AS conteo FROM mysql.tables_priv WHERE User='".$user."' AND ( Host='localhost' OR Host='127.0.0.1' or host='%' or host='::1'  ) and table_priv like '%ALTER%' AND Db='".$base."' ;";
 			$percount= mysql_query($sql,$conexionRoot);
 			$valor = mysql_fetch_array($percount);
 			if($valor['conteo']>0){
 				$sqlAlter="SELECT esq.table_name AS tabla FROM information_schema.tables esq INNER JOIN mysql.tables_priv mys ".
 				"on esq.table_schema = mys.db and esq.table_name=mys.table_name WHERE esq.table_type='BASE TABLE' AND mys.User='".$user."'". 
-				" AND ( mys.Host='".$ip."' OR mys.Host='".$ip2."' ) and mys.tables_priv like '%ALTER%' AND mys.Db='".$base."';";
+				" AND ( mys.Host='localhost' OR mys.Host='127.0.0.1' or mys.host='%' or mys.host='::1' ) and mys.tables_priv like '%ALTER%' AND mys.Db='".$base."';";
 				$permisoAlter=true;
 			}
 		}
@@ -54,7 +54,7 @@ if(isset($_SESSION['user'])){
 		</title>
 		</head>
 		<body>
-		<form name="AlterTable" action="../index.php?action=AlterTabla2" method="post">
+		<form name="AlterTable" action="index.php?action=AlterTabla2" method="post">
 		Seleccione la tabla a modificar:
 		<br>
 		<br>

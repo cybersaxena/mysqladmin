@@ -35,7 +35,7 @@ if(isset($_SESSION['user'])){
 		// nivel 3 siempre se hace
 		$sqlPermisos ="SELECT mys.table_priv AS privilegios FROM information_schema.tables esq INNER JOIN mysql.tables_priv mys ".
 				"on esq.table_schema = mys.db and esq.table_name=mys.table_name WHERE esq.table_type='BASE TABLE' AND mys.User='".$user."'". 
-				" AND ( mys.Host='".$ip."' OR mys.Host='".$ip2."' ) and mys.tables_priv like '%GRANT%' AND mys.Db='".$base."' and mys.table_name ='".$nombreTabla."'";
+				" AND ( mys.Host='localhost' OR mys.Host='127.0.0.1' or mys.host='%' or mys.host='::1' ) and mys.tables_priv like '%GRANT%' AND mys.Db='".$base."' and mys.table_name ='".$nombreTabla."'";
 			$perValor= mysql_query($sqlPermisos,$conexionRoot);
 			if($perValor!=null){
 			$valor = mysql_fetch_array($perValor);
@@ -60,7 +60,7 @@ if(isset($_SESSION['user'])){
 			}
 			if($nivelPermiso<=2){
 			
-				$sqlPermisos ="SELECT *  FROM mysql.db WHERE User='".$user."' AND ( Host='".$ip."' OR Host='".$ip2."' ) and Grant_priv='Y' AND Db='".$base."' and table_name ='".$nombreTabla."' LIMIT 0,1" ;
+				$sqlPermisos ="SELECT *  FROM mysql.db WHERE User='".$user."' AND ( Host='localhost' OR Host='127.0.0.1' or host='%' or host='::1' ) and Grant_priv='Y' AND Db='".$base."'" ;
 				$perValor= mysql_query($sqlPermisos,$conexionRoot);
 				if($perValor!=null){
 				$valor = mysql_fetch_array($perValor);
@@ -85,7 +85,7 @@ if(isset($_SESSION['user'])){
 			}
 			if($nivelPermiso==1){
 			
-			$sqlPermisos ="SELECT * FROM mysql.user WHERE User='".$user."' AND ( Host='".$ip."' OR Host='".$ip2."' ) and Grant_priv='Y' LIMIT 0,1;";
+			$sqlPermisos ="SELECT * FROM mysql.user WHERE User='".$user."' AND ( Host='localhost' OR Host='127.0.0.1' or host='%' or host='::1' ) and Grant_priv='Y' LIMIT 0,1;";
 				$perValor= mysql_query($sqlPermisos,$conexionRoot);
 				$valor = mysql_fetch_array($perValor);
 				if(isset($valor) && $valor!=null){
@@ -117,7 +117,7 @@ if(isset($_SESSION['user'])){
 			</title>
 			</head>
 			<body>
-			<form name="GrantTabla" action="../index.php?action=GrantTabla3" method="post">
+			<form name="GrantTabla" action="index.php?action=GrantTabla3" method="post">
 			<input type="hidden" name="nombreTabla" value="<?php echo $nombreTabla;?>"></input>
 			<br>
 			Seleccione el usuario a dar permisos:

@@ -20,7 +20,7 @@ if(isset($_SESSION['user'])){
 	$opcion=$_POST['TElemento'];
 	if($opcion=="columna"){
 ?>
-	<form name="generaColumna" action="../index.php?action=nuevaColumna" method="post">
+	<form name="generaColumna" action="index.php?action=nuevaColumna" method="post">
 	<input type='hidden' size='30' maxlength='30' name='nombreTabla' value="<?php echo $nombreTabla;?>"/><br>
 	<?php 
 	formColumnaN(1);?>
