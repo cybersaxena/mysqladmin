@@ -11,6 +11,17 @@
             </ul>
         </li>
         
+        <li>Base de Datos
+            <ul>
+                <li><a href="resp01TRON.php" >Respaldar</a></li>
+                <li><a href="ejemplo1TRON.php" >Cargar Respado</a></li>
+                <li><a href="listar01.php" >Restaurar</a></li>
+                <li><a href="nueva.php" >Crear</a></li>
+                <li><a href="listar02.php" >Borrar</a></li>
+                <li><a href="mostrar01.php" >Bitacora</a></li>
+            </ul>
+        </li>
+        
     </ul>
         <ul style="float:right"><li><a href="index.php?action=logout">Ingresar/Salir</a></li></ul>
 </nav>

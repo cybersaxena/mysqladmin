@@ -14,7 +14,7 @@
                 <div class="maincontent">
                 <div id="mensajes"><?php include_once("theme/messages.php");?></div>
                 
-                <?php include("$view.php"); ?>
+                <?php @include("$view.php"); ?>
                 
                 </div>
                 
