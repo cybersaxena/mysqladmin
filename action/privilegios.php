@@ -39,28 +39,28 @@
         if(isset($_POST['ALTER'])){
             $privileges[] = 'ALTER';
         }
-        if(isset($_POST['SHOW DATABASES'])){
+        if(isset($_POST['SHOWDATABASES'])){
             $privileges[] = 'SHOW DATABASES';
         }
         if(isset($_POST['SUPER'])){
             $privileges[] = 'SUPER';
         }
-        if(isset($_POST['CREATE VIEW'])){
+        if(isset($_POST['CREATEVIEW'])){
             $privileges[] = 'CREATE VIEW';
         }
         if(isset($_POST['TRIGGER'])){
             $privileges[] = 'TRIGGER';
         }
-        if(isset($_POST['SHOW VIEW'])){
+        if(isset($_POST['SHOWVIEW'])){
             $privileges[] = 'SHOW VIEW';
         }
-        if(isset($_POST['CREATE ROUTINE'])){
+        if(isset($_POST['CREATEROUTINE'])){
             $privileges[] = 'CREATE ROUTINE';
         }
-        if(isset($_POST['ALTER ROUTINE'])){
+        if(isset($_POST['ALTERROUTINE'])){
             $privileges[] = 'ALTER ROUTINE';
         }
-        if(isset($_POST['CREATE USER'])){
+        if(isset($_POST['CREATEUSER'])){
             $privileges[] = 'CREATE USER';
         }
         
@@ -72,14 +72,17 @@
         $object = $_POST['DATABASE'];
         
         revokePrivileges($user,$server,array("ALL"),$object,isset($_POST['GRANT']),$db);
-        echo mysql_error();
+        $revokeE = mysql_error();
         grantPrivileges($user,$server,$privileges,$object,isset($_POST['GRANT']),$db);
-        echo mysql_error();
+        $grantE = mysql_error();
 
-        if($GLOBALS['m_err'] != null)
+        if($revokeE != null){
+            $messagesError[] = $revokeE;
+        }else  if($grantE != null){
+            $messagesError[] = $grantE;
+        }else
             $messagesOK[] = "Los privilegios se han aplicado de forma correcta para el usuario: $user@$server";
-        else
-            $messagesError[] = $GLOBALS['m_err'];
+
     }
 
         $view = "privilegesForm";
