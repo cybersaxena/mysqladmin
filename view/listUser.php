@@ -1,4 +1,4 @@
-<h3>Lista de usuarios existentes en el sistema.<h3>
+<h3>Lista de usuarios existentes en el sistema.</h3>
 <table border="0">
     <tr>
         <th>Usuario</th>
