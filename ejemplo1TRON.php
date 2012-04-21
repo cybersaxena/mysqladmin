@@ -33,15 +33,17 @@ $carpeta="/backup";
                 //echo '&nbsp';
                 //echo $HTTP_POST_FILES;
                 
-	}
-	if($subio==true) {
+                if($subio==true) {
 		$messagesOK[] =  "El archivo subio con exito";
                 //echo "<a href="Inicio.html">Regresar Menu Principal</a>"; 
-	} else {
+                } else {
 		$messagesError[] =  "El archivo no cumple con las reglas establecidas";
                 //echo "<a href="Inicio.html">Regresar Menu Principal</a>"
                 //echo '<td><a href="Inicio.html">Regresar Menu Principal</a></td>';  
+                }
+                
 	}
+	
 }
 $view = "loadSQL";
 include_once("view/main.php")

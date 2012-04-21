@@ -246,4 +246,5 @@ input[type="text"],input[type="password"],select{
     position: fixed;
     text-align: center;
     width: 100%;
+    font-family:verdana;
 }
