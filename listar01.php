@@ -17,7 +17,7 @@ function listar()
     $saltar_archivo = false;
     echo '</br>';
     echo '<select name="lista">';
-    $dir = opendir("./");
+    $dir = opendir("backup/");
     
     while($listar_d = readdir($dir))
     {
