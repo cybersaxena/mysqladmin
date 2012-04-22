@@ -39,7 +39,7 @@ if(isset($_SESSION['user'])){
 		</title>
 		</head>
 		<body>
-		<form name="NumColumnas" action=".index.php?action=crearTabla2" method="post">
+		<form name="NumColumnas" action="index.php?action=crearTabla2" method="post">
 		Numero de Columnas:
 		<select name="numcols">
 		<?php for($i=1;$i<=100;$i++) echo "<option value='".$i."'/>".$i;?>

@@ -17,7 +17,7 @@ if(isset($_SESSION['user'])){
 	}
 	$sqlGrant="";
 	$permisoGrant=false;
-	$sql="SELECT COUNT(*) AS conteo FROM mysql.user WHERE User='".$user."' AND ( Host='".$ip."'OR Host='%'  ) and Grant_priv='Y';";
+	$sql="SELECT COUNT(*) AS conteo FROM mysql.user WHERE User='".$user."' AND ( Host='localhost' OR Host='127.0.0.1' or host='%' or host='::1'    ) and Grant_priv='Y';";
 	$percount= mysql_query($sql,$conexionRoot);
 	$valor = mysql_fetch_array($percount);
 	$nivelGrant=0;
@@ -47,6 +47,8 @@ if(isset($_SESSION['user'])){
 			}
 		}
 	}
+        
+        //echo $sql."<br>";
 	if($permisoGrant)
 	{
 

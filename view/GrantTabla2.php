@@ -1,7 +1,6 @@
-<?php 
+<?php
 session_start();
 include_once('variables.php');
-
 if(isset($_SESSION['user'])){
 	$user=$_SESSION['user'];
 	$pass= $_SESSION['passwd'];
@@ -16,9 +15,10 @@ if(isset($_SESSION['user'])){
 		$ip2="127.0.0.1";
 	}
 	if(isset($_POST['NombreTabla'])){
+            
 		$nombreTabla=htmlspecialchars($_POST['NombreTabla']);
 		$nivelPermiso=htmlspecialchars($_POST['nivelPermiso']);
-		$pDelete=false;
+                $pDelete=false;
 		$pCreate=false;
 		$pDrop=false;
 		$pGrant=false;
@@ -31,7 +31,8 @@ if(isset($_SESSION['user'])){
 		$pInsert=false;
 		$pUpdate=false;
 		$pReferences=false;
-		
+                
+               
 		// nivel 3 siempre se hace
 		$sqlPermisos ="SELECT mys.table_priv AS privilegios FROM information_schema.tables esq INNER JOIN mysql.tables_priv mys ".
 				"on esq.table_schema = mys.db and esq.table_name=mys.table_name WHERE esq.table_type='BASE TABLE' AND mys.User='".$user."'". 
@@ -84,8 +85,9 @@ if(isset($_SESSION['user'])){
 			
 			}
 			if($nivelPermiso==1){
+                            
 			
-			$sqlPermisos ="SELECT * FROM mysql.user WHERE User='".$user."' AND ( Host='localhost' OR Host='127.0.0.1' or host='%' or host='::1' ) and Grant_priv='Y' LIMIT 0,1;";
+			$sqlPermisos ="SELECT * FROM mysql.user WHERE User='".$user."' AND ( Host='localhost' OR Host='127.0.0.1' or host='%' or host='::1' ) and Grant_priv='Y'";
 				$perValor= mysql_query($sqlPermisos,$conexionRoot);
 				$valor = mysql_fetch_array($perValor);
 				if(isset($valor) && $valor!=null){
@@ -105,8 +107,7 @@ if(isset($_SESSION['user'])){
 				}
 			}
 			
-			
-	
+		
 		if($pDelete || $pCreate || $pDrop || $pGrant || $pIndex || $pAlter || $pCView || $pSView || $pTrigger || $pSelect || $pInsert || $pUpdate || $pReferences )
 		{
 			?>

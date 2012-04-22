@@ -31,7 +31,7 @@ if(isset($_SESSION['user'])){
 	}
 	if($opcion=="indice"){
 ?> 
-		<form name="generaIndice" action="../index.php?action=nuevoIndice" method="post">
+		<form name="generaIndice" action="index.php?action=nuevoIndice" method="post">
 		<input type="hidden" name="nombreTabla" value="<?php echo $nombreTabla;?>"></input>
 		Nombre del indice:
 		<br>
@@ -70,7 +70,7 @@ if(isset($_SESSION['user'])){
 			$valor = mysql_fetch_array($conteo);
 			if($valor['conteo']==0){
 				?>
-				<form name="generaPrimary" action="../index.php?action=nuevoPrimary" method="post">
+				<form name="generaPrimary" action="index.php?action=nuevoPrimary" method="post">
 				<input type='hidden' size='30' maxlength='30' name='nombreTabla' value="<?php echo $nombreTabla;?>"/><br>
 				Nombre de la llave Primaria:
 				<br>

@@ -48,7 +48,7 @@ if(isset($_SESSION['user'])){
 		<br>
 		<br>
 		Agregar elemento:
-		<form name="AddElement" action="../index.php?action=AddElement" method="post">
+		<form name="AddElement" action="index.php?action=AddElement" method="post">
 		<input type="hidden" name="NombreTabla" value="<?php echo $nombreTabla;?>"></input>
 		<SELECT name="TElemento">
 		<option value="columna">Columna</option>
@@ -64,7 +64,7 @@ if(isset($_SESSION['user'])){
 		<br>
 		<br>
 		Eliminar elemento:
-		<form name="dropElement" action="../index.php?action=dropElement" method="post">
+		<form name="dropElement" action="index.php?action=dropElement" method="post">
 		<input type="hidden" name="NombreTabla" value="<?php echo $nombreTabla;?>"></input>
 		<SELECT name="TElemento">
 		<option value="primaryKey">LlavePrimaria</option>
