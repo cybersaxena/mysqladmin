@@ -1,8 +1,8 @@
 <?php
 	class MySQLdBO{
 		var $connection;
-		public function connect($user="root", $password=null){
-			$this->connection = @mysql_connect("localhost",$user,$password);
+		public function connect($user="root", $password=123){
+			$this->connection = @mysql_connect("mysql.phpwebapp.svc",$user,$password);
 			if (!$conexion){
 				return false;
 			}
