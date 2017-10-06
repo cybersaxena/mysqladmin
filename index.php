@@ -52,5 +52,6 @@ function handleError($errno, $errstr, $errfile, $errline, array $errcontext)
 <script>
 function myFunction() {
     alert("I am an alert box!");
+    alert("Lets make a change!");
 }
 </script>
