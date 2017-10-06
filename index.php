@@ -13,7 +13,7 @@ include_once("action/session_mgmt.php");
 
 //set_error_handler('handleError');
 if(!$loggedin && $_GET['action']!='login'){
-    $title = "Ingresa";
+    $title = "PHP App on Openshift";
     $view = "login";
 }else if($action=$_GET['action']){
     try {
