@@ -47,3 +47,10 @@ function handleError($errno, $errstr, $errfile, $errline, array $errcontext)
 
 
 ?>
+<button onclick="myFunction()">We have to Try this button</button>
+
+<script>
+function myFunction() {
+    alert("I am an alert box!");
+}
+</script>
